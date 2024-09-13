@@ -31,6 +31,8 @@ VALUES
 
 ('pagto fatura' + ISNULL(@fatura,)'**') ISNULL (@data, getdate())
 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
 DROP PROC sp_i_pagamento
 go
 CREATE PROC sp_I_pagamento (
