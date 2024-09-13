@@ -1,8 +1,3 @@
-pag_pagto = ISNULL (@data, getdate()),
-fkbanco = @fkbanco
-WHERE idpagar = @idpagar
-
-
 CREATE TABLE movbanco(
 	IdMovbanco INT IDENTITY(1,1) NOT NULL PRIMARY KEY, --PK
 	Movban_Descricao VARCHAR (30) NULL,
@@ -17,19 +12,6 @@ ALTER TABLE movbanco
 ADD CONSTRAINT fkbanco
 FOREIGN KEY (fkbanco)
 REFERENCES IdMovbanco (IdMovbanco);
-
-INSERT movbanco(
-	Movban_descricao,
-	Movban_date,
-	Movban_valor,
-	Movban_tipo,
-	Movban_saldo,
-	fkbanco 
-)
-
-VALUES
-
-('pagto fatura' + ISNULL(@fatura,)'**') ISNULL (@data, getdate())
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -54,3 +36,27 @@ AS
 		SELECT 'A fatura fornecida não existe!'
 		return -1
 	END
+
+
+
+
+
+
+
+
+	
+INSERT movbanco(
+	Movban_descricao,
+	Movban_date,
+	Movban_valor,
+	Movban_tipo,
+	Movban_saldo,
+	fkbanco 
+)
+
+VALUES
+
+('pagto fatura' + ISNULL(@fatura,)'**') ISNULL (@data, getdate())
+pag_pagto = ISNULL (@data, getdate()),
+fkbanco = @fkbanco
+WHERE idpagar = @idpagar
