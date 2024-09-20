@@ -26,8 +26,10 @@ CREATE PROC sp_I_pagamento (
 )
 
 AS
-
 	DECLARE @saldo NUMERIC(18,2)
+	DECLARE @fatura VARCHAR(20)
+	DECLARE @valor NUMERIC(18,2)
+
 	SET @saldo = (SELECT Ban_saldo FROM banco WHERE IdBanco = @fkbanco)
 
 	-- testa se a fatura existe
