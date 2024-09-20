@@ -1,5 +1,5 @@
 CREATE TRIGGER test
-ON pagar
+ON pagar  -- Tabela que a trigues esta sendo ligada
 AFTER INSERT, UPDATE, DELETE
 AS
 	IF (SELECT * FROM inserted) AND NOT(SELECT * FROM deleted) SELECT "INSERCAO"
